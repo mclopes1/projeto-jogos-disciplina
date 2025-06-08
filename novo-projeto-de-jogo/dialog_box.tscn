@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://bk0djtc7o4ll0"]
+
+[ext_resource type="Texture2D" uid="uid://dtfduhw38fs75" path="res://dialog.png" id="1_1ki1k"]
+[ext_resource type="Script" uid="uid://bnyqry14fsoux" path="res://dialog_box.gd" id="2_cjsg4"]
+
+[node name="DialogBox" type="NinePatchRect"]
+offset_left = 1411.0
+offset_top = 910.0
+offset_right = 1752.0
+offset_bottom = 1058.0
+texture = ExtResource("1_1ki1k")
+script = ExtResource("2_cjsg4")
+
+[node name="Text" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.106
+anchor_top = 0.311
+anchor_right = 0.106
+anchor_bottom = 0.311
+offset_left = 2.854
+offset_top = -1.028
+offset_right = 570.854
+offset_bottom = 135.972
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+tab_size = 7
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
