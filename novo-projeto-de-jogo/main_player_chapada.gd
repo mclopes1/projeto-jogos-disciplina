@@ -2,12 +2,11 @@ extends CharacterBody2D
 
 @onready var dialog = $"../DialogBox"
 var ultimo_colidir = ""
-@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D_chapada
 
-const speed = 100
+const speed = 200
 
 func _ready():
-	global_position = GameState.player_position
 	set_physics_process(true)
 	#dialog.hide()
 
@@ -28,13 +27,11 @@ func _physics_process(delta):
 		direction += Vector2(1,0)
 		animated_sprite.flip_h = false
 		direction_animated+=1
-	#current_position = global_position
 
 	# Anima apenas se estiver se movendo para os lados
 	if direction_animated != 0:
 		if not animated_sprite.is_playing():
-			print ("dentro do is playing")
-			animated_sprite.play("ciclying1")
+			animated_sprite.play("cycling")
 	else:
 		animated_sprite.stop()
 		animated_sprite.frame = 0  # Opcional: mostra o primeiro frame quando parado
@@ -50,6 +47,5 @@ func _physics_process(delta):
 				dialog.show()
 				dialog.show_message("Você chegou a capital Salvador! \nConsegue adivinhar qual estado está")
 		if collision.get_collider().name == "paInacio":
-			GameState.player_position = global_position
 			get_tree().change_scene_to_file("res://dentro_da_chapada.tscn")
 			

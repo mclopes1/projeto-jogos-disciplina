@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dxpswaqmkewcq"]
+[gd_scene load_steps=17 format=3 uid="uid://dxpswaqmkewcq"]
 
 [ext_resource type="Script" uid="uid://b8oqrhcv6t6so" path="res://node_2d.gd" id="1_d21ai"]
 [ext_resource type="Texture2D" uid="uid://bwc888fgbt0xe" path="res://nordeste.png" id="1_wtcfe"]
@@ -7,13 +7,26 @@
 [ext_resource type="Texture2D" uid="uid://c0kk3n72jm7jx" path="res://personagem_principal.png" id="4_0hol4"]
 [ext_resource type="Texture2D" uid="uid://mdjf2g5an0of" path="res://pai_inacio.png" id="5_q6r6c"]
 [ext_resource type="Texture2D" uid="uid://do5qnacgeby3e" path="res://porto_seguro.png" id="6_kdubu"]
+[ext_resource type="Texture2D" uid="uid://bcuytbe2y874s" path="res://boneco_perna_esticada.png" id="7_ir8iy"]
 [ext_resource type="Texture2D" uid="uid://cd16syl2ollgr" path="res://xique-xique.png" id="8_rj586"]
 [ext_resource type="PackedScene" uid="uid://bk0djtc7o4ll0" path="res://dialog_box.tscn" id="9_4d7sh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d21ai"]
 size = Vector2(22.125, 39)
 
-[sub_resource type="GDScript" id="GDScript_q6r6c"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_hqns4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_ir8iy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_0hol4")
+}],
+"loop": true,
+"name": &"ciclying1",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0hol4"]
 size = Vector2(44, 42)
@@ -57,11 +70,11 @@ shape = SubResource("RectangleShape2D_d21ai")
 position = Vector2(450, 443)
 script = ExtResource("3_0hol4")
 
-[node name="Sprite2D" type="Sprite2D" parent="main_player"]
-position = Vector2(1.99998, -5.99997)
-scale = Vector2(0.0703125, 0.071289)
-texture = ExtResource("4_0hol4")
-script = SubResource("GDScript_q6r6c")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="main_player"]
+position = Vector2(3, -2)
+scale = Vector2(0.0722656, 0.0688477)
+sprite_frames = SubResource("SpriteFrames_hqns4")
+animation = &"ciclying1"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="main_player"]
 position = Vector2(-1, 1)

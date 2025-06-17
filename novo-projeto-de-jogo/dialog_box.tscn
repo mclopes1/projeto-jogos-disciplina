@@ -27,6 +27,6 @@ bbcode_enabled = true
 tab_size = 7
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 2.196
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
