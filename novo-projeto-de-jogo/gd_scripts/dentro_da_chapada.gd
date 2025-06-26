@@ -5,7 +5,7 @@ var objetos_na_area: Array = []
 @onready var timer = $Timer
 @onready var pontos = $Label
 @onready var mostrador_tempo = $mostrador_tempo
-@onready var cor = $Area2D/ColorRect
+#@onready var cor = $Area2D/ColorRect
 
 func _ready() -> void:
 	timer.start()
@@ -38,7 +38,6 @@ func _on_line_edit_text_submitted(new_text: String) -> void:
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	
 	print (area.is_in_group("bahia")) # Replace with function body.
 	var count = 0
 	var tam = get_tree().get_nodes_in_group("bahia").size()
@@ -54,12 +53,11 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		GameState.acertos_estados["bahia"] = true
 	else:
 		print ("pera ai meu rei")
-	cor.color = Color(0, 1, 0)
+	#cor.color = Color(0, 1, 0)
 
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
 	var count = 0
-	
 	var tam = get_tree().get_nodes_in_group("bahia").size()
 	if objetos_na_area.has(area):
 		objetos_na_area.erase(area)
@@ -67,7 +65,7 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 		if ar.is_in_group("bahia"):
 			count+=1
 	pontos.text = "Acertos: " + str(count) + " de " + str(tam)
-	cor.color = Color(1, 1, 1)
+	#cor.color = Color(1, 1, 1)
 
 
 func _on_timer_timeout() -> void:
