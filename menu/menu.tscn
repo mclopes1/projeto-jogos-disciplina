@@ -1,0 +1,64 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1gc75jj6s8n0"]
+
+[ext_resource type="Script" uid="uid://bxqoud0bu3dx5" path="res://menu.gd" id="1_lti8b"]
+[ext_resource type="Texture2D" uid="uid://dkpnqq41ti63o" path="res://menu.png" id="2_ouk20"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lti8b")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1144.0
+offset_bottom = 646.0
+color = Color(0.176471, 0.384314, 0.564706, 1)
+
+[node name="Menu" type="Sprite2D" parent="."]
+position = Vector2(594, 319)
+scale = Vector2(0.47168, 0.414063)
+texture = ExtResource("2_ouk20")
+
+[node name="MadeBy" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.512
+anchor_top = 0.915
+anchor_right = 0.512
+anchor_bottom = 0.915
+offset_left = -122.824
+offset_top = -42.92
+offset_right = 122.176
+offset_bottom = 0.0799561
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 469.0
+offset_top = 430.0
+offset_right = 721.0
+offset_bottom = 483.0
+theme_type_variation = &"FlatButton"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 472.0
+offset_top = 493.0
+offset_right = 722.0
+offset_bottom = 546.0
+theme_type_variation = &"FlatButton"
+
+[node name="Button3" type="Button" parent="."]
+layout_mode = 0
+offset_left = 467.0
+offset_top = 559.0
+offset_right = 713.0
+offset_bottom = 612.0
+theme_type_variation = &"FlatButton"
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="Button2" to="." method="_on_button_2_button_down"]
+[connection signal="button_down" from="Button3" to="." method="_on_button_3_button_down"]

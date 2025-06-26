@@ -1,0 +1,203 @@
+[gd_scene load_steps=27 format=3 uid="uid://cmgxx1w2klvfw"]
+
+[ext_resource type="Script" uid="uid://djygxlw4h7rf2" path="res://gd_scripts/dentro_da_chapada.gd" id="1_nq37m"]
+[ext_resource type="Texture2D" uid="uid://bpalwpohvc5v0" path="res://images/bahia/elevador_lacerda.png" id="2_nq37m"]
+[ext_resource type="Script" uid="uid://b8y0yemoo4uhc" path="res://gd_scripts/main_player_chapada.gd" id="3_1ciyb"]
+[ext_resource type="Texture2D" uid="uid://bcuytbe2y874s" path="res://images/boneco_perna_esticada.png" id="4_0s018"]
+[ext_resource type="Texture2D" uid="uid://c0kk3n72jm7jx" path="res://images/personagem_principal.png" id="5_exkc7"]
+[ext_resource type="Texture2D" uid="uid://2kbmkq86jwdp" path="res://images/bahia_drag_drop/bonfim.png" id="6_1ciyb"]
+[ext_resource type="Texture2D" uid="uid://cogd2kj6ooyvm" path="res://images/bahia_drag_drop/lencois.png" id="7_0s018"]
+[ext_resource type="Script" uid="uid://xdasx3yvkmqx" path="res://bonfim_moving.gd" id="7_exkc7"]
+[ext_resource type="Script" uid="uid://spyqhhe43jpl" path="res://gd_scripts/drag_drop/lencois.gd" id="8_exkc7"]
+[ext_resource type="Script" uid="uid://d7p5yx3gwuoy" path="res://gd_scripts/drag_drop/bahia_2.gd" id="10_icwlj"]
+[ext_resource type="Texture2D" uid="uid://du2htcnlx744u" path="res://images/bahia_drag_drop/bahia1.png" id="11_tg47q"]
+[ext_resource type="Texture2D" uid="uid://dq64qkro7cb1d" path="res://images/bahia_drag_drop/nao_bahia1.png" id="12_bytcu"]
+[ext_resource type="Script" uid="uid://dw1bkkdaxu1se" path="res://gd_scripts/drag_drop/naobahia.gd" id="12_tg47q"]
+[ext_resource type="Script" uid="uid://ciuht325ay0ff" path="res://gd_scripts/drag_drop/naobahia_2.gd" id="14_i5lo1"]
+[ext_resource type="Texture2D" uid="uid://bwgetpyre2jj1" path="res://images/bahia_drag_drop/bahia2.jpg" id="15_x0pw4"]
+[ext_resource type="Texture2D" uid="uid://cj6pqplqgus4g" path="res://images/bahia_drag_drop/nao_bahia2.png" id="16_x0pw4"]
+[ext_resource type="FontFile" uid="uid://cn1dlsipjt5dq" path="res://fontes/Ricebox Allcaps.ttf" id="17_hc0xp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8ft5c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_0s018")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_exkc7")
+}],
+"loop": true,
+"name": &"cycling",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ft5c"]
+size = Vector2(165, 189)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_imloa"]
+size = Vector2(318.25, 888)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ciyb"]
+size = Vector2(1080.77, 1075.74)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2t1p3"]
+size = Vector2(126, 159)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i5lo1"]
+size = Vector2(188.5, 186)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x0pw4"]
+size = Vector2(141.5, 137)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hc0xp"]
+size = Vector2(182.5, 133)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t06g5"]
+size = Vector2(191, 158)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_nq37m")
+
+[node name="PaiInacio" type="Sprite2D" parent="."]
+position = Vector2(583.25, 442.25)
+scale = Vector2(1.17725, 0.581706)
+texture = ExtResource("2_nq37m")
+
+[node name="main_player_chapada" type="CharacterBody2D" parent="."]
+position = Vector2(174, 699)
+script = ExtResource("3_1ciyb")
+
+[node name="AnimatedSprite2D_chapada" type="AnimatedSprite2D" parent="main_player_chapada"]
+position = Vector2(-28, -17.0001)
+scale = Vector2(0.297852, 0.306641)
+sprite_frames = SubResource("SpriteFrames_8ft5c")
+animation = &"cycling"
+frame_progress = 0.0957536
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="main_player_chapada"]
+position = Vector2(-58, 5)
+shape = SubResource("RectangleShape2D_8ft5c")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(1279, 725)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-20.875, -282)
+shape = SubResource("RectangleShape2D_imloa")
+
+[node name="LineEdit" type="LineEdit" parent="."]
+offset_left = 111.0
+offset_top = -161.0
+offset_right = 262.0
+offset_bottom = -117.0
+placeholder_text = "Enter State Name"
+
+[node name="bahia1" type="Area2D" parent="." groups=["bahia"]]
+position = Vector2(200, 179)
+script = ExtResource("7_exkc7")
+
+[node name="Bonfim" type="Sprite2D" parent="bahia1"]
+position = Vector2(-11, -6.99998)
+scale = Vector2(0.15332, 0.147949)
+texture = ExtResource("6_1ciyb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bahia1"]
+position = Vector2(-3.99991, -5.99998)
+scale = Vector2(0.15332, 0.147949)
+shape = SubResource("RectangleShape2D_1ciyb")
+
+[node name="lencois" type="Area2D" parent="." groups=["nao_bahia"]]
+position = Vector2(328, 398)
+script = ExtResource("8_exkc7")
+
+[node name="Lencois" type="Sprite2D" parent="lencois"]
+position = Vector2(1.00001, -1.99999)
+scale = Vector2(0.123535, 0.155762)
+texture = ExtResource("7_0s018")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lencois"]
+position = Vector2(1, -0.5)
+shape = SubResource("RectangleShape2D_2t1p3")
+
+[node name="bahia2" type="Area2D" parent="." groups=["bahia"]]
+position = Vector2(653, 226)
+script = ExtResource("10_icwlj")
+
+[node name="bahia2" type="Sprite2D" parent="bahia2"]
+position = Vector2(1.99997, -10)
+scale = Vector2(0.18457, 0.177246)
+texture = ExtResource("11_tg47q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bahia2"]
+position = Vector2(1.75, -9)
+shape = SubResource("RectangleShape2D_i5lo1")
+
+[node name="naobahia" type="Area2D" parent="." groups=["nao_bahia"]]
+position = Vector2(338, 791)
+script = ExtResource("12_tg47q")
+
+[node name="naobahia" type="Sprite2D" parent="naobahia"]
+position = Vector2(-5, 3.00002)
+scale = Vector2(0.138672, 0.134766)
+texture = ExtResource("12_bytcu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="naobahia"]
+position = Vector2(-3, 6)
+shape = SubResource("RectangleShape2D_x0pw4")
+
+[node name="naobahia2" type="Area2D" parent="." groups=["nao_bahia"]]
+position = Vector2(854, 569)
+script = ExtResource("14_i5lo1")
+
+[node name="Sprite2D" type="Sprite2D" parent="naobahia2"]
+position = Vector2(-46, -6.99998)
+scale = Vector2(0.147917, 0.168125)
+texture = ExtResource("15_x0pw4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="naobahia2"]
+position = Vector2(-45.25, -5.5)
+shape = SubResource("RectangleShape2D_hc0xp")
+
+[node name="bahia3" type="Area2D" parent="."]
+position = Vector2(527, 598)
+
+[node name="Sprite2D" type="Sprite2D" parent="bahia3"]
+position = Vector2(-16.75, -13)
+scale = Vector2(0.185059, 0.15625)
+texture = ExtResource("16_x0pw4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bahia3"]
+position = Vector2(-14.5, -13)
+shape = SubResource("RectangleShape2D_t06g5")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 15.0
+one_shot = true
+
+[node name="mostrador_tempo" type="Label" parent="."]
+offset_left = 40.0
+offset_top = 7.0
+offset_right = 163.0
+offset_bottom = 81.0
+theme_override_font_sizes/font_size = 45
+
+[node name="Label" type="Label" parent="."]
+offset_left = 633.0
+offset_top = 9.0
+offset_right = 894.0
+offset_bottom = 89.0
+theme_override_fonts/font = ExtResource("17_hc0xp")
+theme_override_font_sizes/font_size = 81
+text = "Acertos: "
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="text_submitted" from="LineEdit" to="." method="_on_line_edit_text_submitted"]
+[connection signal="input_event" from="bahia1" to="bahia1" method="_on_input_event"]
+[connection signal="input_event" from="lencois" to="lencois" method="_on_input_event"]
+[connection signal="input_event" from="bahia2" to="bahia2" method="_on_input_event"]
+[connection signal="input_event" from="naobahia" to="naobahia" method="_on_input_event"]
+[connection signal="input_event" from="naobahia2" to="naobahia2" method="_on_input_event"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

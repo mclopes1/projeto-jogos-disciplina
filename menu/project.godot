@@ -10,16 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Novo Projeto de Jogo"
-run/main_scene="uid://dxpswaqmkewcq"
+config/name="MENU"
+run/main_scene="res://menu.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
-
-[autoload]
-
-GameState="*res://gd_scripts/GameState.gd"
-
-[display]
-
-window/size/viewport_width=1400
-window/size/viewport_height=900

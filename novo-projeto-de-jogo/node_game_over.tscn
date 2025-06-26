@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c2vr8mt8d1x7l"]
 
-[ext_resource type="Texture2D" uid="uid://2krp8vf57iph" path="res://gameover.png" id="1_684xv"]
+[ext_resource type="Texture2D" uid="uid://2krp8vf57iph" path="res://images/gameover.png" id="1_684xv"]
 
 [node name="Node2D" type="Node2D"]
 

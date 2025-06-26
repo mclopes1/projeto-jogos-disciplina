@@ -1,18 +1,21 @@
-[gd_scene load_steps=17 format=3 uid="uid://dxpswaqmkewcq"]
+[gd_scene load_steps=21 format=3 uid="uid://dxpswaqmkewcq"]
 
-[ext_resource type="Script" uid="uid://b8oqrhcv6t6so" path="res://node_2d.gd" id="1_d21ai"]
-[ext_resource type="Texture2D" uid="uid://bwc888fgbt0xe" path="res://nordeste.png" id="1_wtcfe"]
-[ext_resource type="Texture2D" uid="uid://pi4c2k6xvo8q" path="res://baiano.png" id="2_0hol4"]
-[ext_resource type="Script" uid="uid://c7ekh03g47oyf" path="res://character_body_2d_2.gd" id="3_0hol4"]
-[ext_resource type="Texture2D" uid="uid://c0kk3n72jm7jx" path="res://personagem_principal.png" id="4_0hol4"]
-[ext_resource type="Texture2D" uid="uid://mdjf2g5an0of" path="res://pai_inacio.png" id="5_q6r6c"]
-[ext_resource type="Texture2D" uid="uid://do5qnacgeby3e" path="res://porto_seguro.png" id="6_kdubu"]
-[ext_resource type="Texture2D" uid="uid://bcuytbe2y874s" path="res://boneco_perna_esticada.png" id="7_ir8iy"]
-[ext_resource type="Texture2D" uid="uid://cd16syl2ollgr" path="res://xique-xique.png" id="8_rj586"]
+[ext_resource type="Script" uid="uid://b8oqrhcv6t6so" path="res://gd_scripts/node_2d.gd" id="1_d21ai"]
+[ext_resource type="Texture2D" uid="uid://bwc888fgbt0xe" path="res://images/nordeste.png" id="1_wtcfe"]
+[ext_resource type="Texture2D" uid="uid://v2s8sqyopron" path="res://images/bahia/mar.png" id="2_hqns4"]
+[ext_resource type="Script" uid="uid://c7ekh03g47oyf" path="res://gd_scripts/character_body_2d_2.gd" id="3_0hol4"]
+[ext_resource type="Texture2D" uid="uid://c0kk3n72jm7jx" path="res://images/personagem_principal.png" id="4_0hol4"]
+[ext_resource type="Texture2D" uid="uid://cjed15opcbn2h" path="res://images/ceara/interrogacao.png" id="5_d2bti"]
+[ext_resource type="Texture2D" uid="uid://mdjf2g5an0of" path="res://images/bahia/pai_inacio.png" id="5_q6r6c"]
+[ext_resource type="Texture2D" uid="uid://do5qnacgeby3e" path="res://images/bahia/porto_seguro.png" id="6_kdubu"]
+[ext_resource type="Texture2D" uid="uid://bcuytbe2y874s" path="res://images/boneco_perna_esticada.png" id="7_ir8iy"]
+[ext_resource type="Texture2D" uid="uid://cd16syl2ollgr" path="res://images/bahia/xique-xique.png" id="8_rj586"]
 [ext_resource type="PackedScene" uid="uid://bk0djtc7o4ll0" path="res://dialog_box.tscn" id="9_4d7sh"]
+[ext_resource type="Texture2D" uid="uid://bhcvcnrj5sj13" path="res://images/piaui/pedra-furada.png" id="12_x0ka3"]
+[ext_resource type="Texture2D" uid="uid://d3gq6gtx138rw" path="res://images/ceara/padre_cicero.png" id="15_d2bti"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d21ai"]
-size = Vector2(22.125, 39)
+size = Vector2(30.0625, 40.5)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hqns4"]
 animations = [{
@@ -40,8 +43,52 @@ size = Vector2(28, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4d7sh"]
 size = Vector2(51, 49)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0h7mo"]
+size = Vector2(22.375, 27)
+
 [node name="Node2D" type="Node2D"]
+position = Vector2(1, 0)
 script = ExtResource("1_d21ai")
+
+[node name="Mar" type="Sprite2D" parent="."]
+position = Vector2(627, 127)
+scale = Vector2(0.525391, 0.488281)
+texture = ExtResource("2_hqns4")
+
+[node name="Mar" type="Sprite2D" parent="Mar"]
+position = Vector2(544.357, 65.5358)
+scale = Vector2(1.24626, 1.24809)
+texture = ExtResource("2_hqns4")
+
+[node name="Mar" type="Sprite2D" parent="Mar/Mar"]
+position = Vector2(509.41, 78.175)
+scale = Vector2(1.31516, 1.27143)
+texture = ExtResource("2_hqns4")
+
+[node name="Mar" type="Sprite2D" parent="Mar/Mar/Mar"]
+position = Vector2(-154.463, 580.455)
+scale = Vector2(1.59883, 1.31882)
+texture = ExtResource("2_hqns4")
+
+[node name="Mar2" type="Sprite2D" parent="Mar/Mar/Mar"]
+position = Vector2(509.41, 78.175)
+scale = Vector2(1.31516, 1.27143)
+texture = ExtResource("2_hqns4")
+
+[node name="Mar" type="Sprite2D" parent="Mar/Mar/Mar/Mar2"]
+position = Vector2(-154.463, 580.455)
+scale = Vector2(1.59883, 1.31882)
+texture = ExtResource("2_hqns4")
+
+[node name="Mar2" type="Sprite2D" parent="Mar/Mar/Mar/Mar2"]
+position = Vector2(-714.521, 832.138)
+scale = Vector2(1.15259, 1.20191)
+texture = ExtResource("2_hqns4")
+
+[node name="Mar3" type="Sprite2D" parent="Mar/Mar/Mar/Mar2"]
+position = Vector2(-91.1098, 818.536)
+scale = Vector2(1.36573, 1.25139)
+texture = ExtResource("2_hqns4")
 
 [node name="Nordeste" type="Sprite2D" parent="."]
 position = Vector2(660.875, 520)
@@ -55,12 +102,12 @@ offset_right = 949.0
 offset_bottom = 1096.0
 
 [node name="character_baiano" type="CharacterBody2D" parent="."]
-position = Vector2(828, 723)
+position = Vector2(819, 712)
 
 [node name="Baiano" type="Sprite2D" parent="character_baiano"]
 position = Vector2(-1.52588e-05, -2)
 scale = Vector2(0.045166, 0.053711)
-texture = ExtResource("2_0hol4")
+texture = ExtResource("5_d2bti")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="character_baiano"]
 position = Vector2(1, -2)
@@ -116,10 +163,148 @@ texture = ExtResource("8_rj586")
 position = Vector2(1.5, -2.5)
 shape = SubResource("RectangleShape2D_4d7sh")
 
+[node name="serra_capivara" type="Area2D" parent="."]
+position = Vector2(618, 473)
+
+[node name="Sprite2D" type="Sprite2D" parent="serra_capivara"]
+position = Vector2(-23, -21)
+scale = Vector2(-0.0225497, 0.033647)
+texture = ExtResource("12_x0ka3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="serra_capivara"]
+position = Vector2(-23, -22)
+shape = SubResource("RectangleShape2D_0h7mo")
+
+[node name="teresina" type="Area2D" parent="."]
+position = Vector2(584, 292)
+
+[node name="Sprite2D" type="Sprite2D" parent="teresina"]
+position = Vector2(17.8466, -3.60831)
+scale = Vector2(-0.0427457, 0.0456312)
+texture = ExtResource("5_d2bti")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="teresina"]
+position = Vector2(19, -5)
+shape = SubResource("RectangleShape2D_0h7mo")
+
+[node name="maranhao" type="Area2D" parent="."]
+position = Vector2(574, 104)
+
+[node name="Sprite2D" type="Sprite2D" parent="maranhao"]
+position = Vector2(-3.66012, 8.49461)
+scale = Vector2(-0.0385794, 0.0517404)
+texture = ExtResource("5_d2bti")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="maranhao"]
+position = Vector2(-2, 2)
+shape = SubResource("RectangleShape2D_0h7mo")
+
+[node name="padre_cicero" type="Area2D" parent="."]
+position = Vector2(792, 344)
+
+[node name="Sprite2D" type="Sprite2D" parent="padre_cicero"]
+position = Vector2(-1.00002, 3.00001)
+scale = Vector2(-0.0220959, 0.0179986)
+texture = ExtResource("15_d2bti")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="padre_cicero"]
+position = Vector2(-2.1875, 2.5)
+shape = SubResource("RectangleShape2D_0h7mo")
+
+[node name="fortaleza" type="Area2D" parent="."]
+position = Vector2(820, 173)
+
+[node name="Sprite2D" type="Sprite2D" parent="fortaleza"]
+position = Vector2(-2.63657, 11.5866)
+scale = Vector2(-0.0358295, 0.039053)
+texture = ExtResource("5_d2bti")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fortaleza"]
+position = Vector2(-1, 11)
+shape = SubResource("RectangleShape2D_0h7mo")
+
+[node name="natal" type="Area2D" parent="."]
+position = Vector2(1010, 280)
+
+[node name="Sprite2D" type="Sprite2D" parent="natal"]
+position = Vector2(-2.63657, 11.5866)
+scale = Vector2(-0.0358295, 0.039053)
+texture = ExtResource("5_d2bti")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="natal"]
+position = Vector2(-4, 9)
+shape = SubResource("RectangleShape2D_0h7mo")
+
+[node name="joaopessoa" type="Area2D" parent="."]
+position = Vector2(1030, 357)
+
+[node name="Sprite2D" type="Sprite2D" parent="joaopessoa"]
+position = Vector2(-2.63657, 11.5866)
+scale = Vector2(-0.0358295, 0.039053)
+texture = ExtResource("5_d2bti")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="joaopessoa"]
+position = Vector2(-2, 9)
+shape = SubResource("RectangleShape2D_0h7mo")
+
+[node name="recife" type="Area2D" parent="."]
+position = Vector2(1028, 432)
+
+[node name="Sprite2D" type="Sprite2D" parent="recife"]
+position = Vector2(-2.63657, 11.5866)
+scale = Vector2(-0.0358295, 0.039053)
+texture = ExtResource("5_d2bti")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="recife"]
+position = Vector2(-2, 11)
+shape = SubResource("RectangleShape2D_0h7mo")
+
+[node name="maceio" type="Area2D" parent="."]
+position = Vector2(983, 532)
+
+[node name="Sprite2D" type="Sprite2D" parent="maceio"]
+position = Vector2(-4.99997, -4)
+scale = Vector2(-0.0358295, 0.039053)
+texture = ExtResource("5_d2bti")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="maceio"]
+position = Vector2(-4, -6)
+shape = SubResource("RectangleShape2D_0h7mo")
+
+[node name="aracaju" type="Area2D" parent="."]
+position = Vector2(913, 603)
+
+[node name="Sprite2D" type="Sprite2D" parent="aracaju"]
+position = Vector2(2.28882e-05, -3)
+scale = Vector2(-0.0358295, 0.039053)
+texture = ExtResource("5_d2bti")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="aracaju"]
+position = Vector2(1, -2)
+shape = SubResource("RectangleShape2D_0h7mo")
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
 one_shot = true
 
 [connection signal="body_entered" from="porto_seguro" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="xiquexique" to="." method="_on_xiquexique_body_entered"]
+[connection signal="body_entered" from="serra_capivara" to="." method="_on_serra_capivara_body_entered"]
+[connection signal="body_entered" from="teresina" to="." method="_on_teresina_body_entered"]
+[connection signal="body_entered" from="maranhao" to="." method="_on_lencois_maranhenses_body_entered"]
+[connection signal="body_entered" from="padre_cicero" to="." method="_on_juazeiro_norte_body_entered"]
+[connection signal="body_entered" from="fortaleza" to="." method="_on_fortaleza_body_entered"]
+[connection signal="body_entered" from="natal" to="." method="_on_natal_body_entered"]
+[connection signal="body_entered" from="joaopessoa" to="." method="_on_joaopessoa_body_entered"]
+[connection signal="body_entered" from="recife" to="." method="_on_recife_body_entered"]
+[connection signal="body_entered" from="maceio" to="." method="_on_maceio_body_entered"]
+[connection signal="body_entered" from="aracaju" to="." method="_on_aracaju_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

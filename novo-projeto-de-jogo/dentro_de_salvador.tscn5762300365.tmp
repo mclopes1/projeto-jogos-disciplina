@@ -1,0 +1,90 @@
+[gd_scene load_steps=12 format=3 uid="uid://cmgxx1w2klvfw"]
+
+[ext_resource type="Script" uid="uid://djygxlw4h7rf2" path="res://gd_scripts/dentro_da_chapada.gd" id="1_nq37m"]
+[ext_resource type="Texture2D" uid="uid://bpalwpohvc5v0" path="res://images/bahia/elevador_lacerda.png" id="2_nq37m"]
+[ext_resource type="Script" uid="uid://b8y0yemoo4uhc" path="res://gd_scripts/main_player_chapada.gd" id="3_1ciyb"]
+[ext_resource type="Texture2D" uid="uid://bcuytbe2y874s" path="res://images/boneco_perna_esticada.png" id="4_0s018"]
+[ext_resource type="Texture2D" uid="uid://c0kk3n72jm7jx" path="res://images/personagem_principal.png" id="5_exkc7"]
+[ext_resource type="Texture2D" uid="uid://2kbmkq86jwdp" path="res://images/bahia_drag_drop/bonfim.png" id="6_1ciyb"]
+[ext_resource type="Texture2D" uid="uid://cogd2kj6ooyvm" path="res://images/bahia_drag_drop/lencois.png" id="7_0s018"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8ft5c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_0s018")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_exkc7")
+}],
+"loop": true,
+"name": &"cycling",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ft5c"]
+size = Vector2(165, 189)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_imloa"]
+size = Vector2(318.25, 888)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ciyb"]
+size = Vector2(1080.77, 1075.74)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_nq37m")
+
+[node name="PaiInacio" type="Sprite2D" parent="."]
+position = Vector2(583.25, 442.25)
+scale = Vector2(1.17725, 0.581706)
+texture = ExtResource("2_nq37m")
+
+[node name="main_player_chapada" type="CharacterBody2D" parent="."]
+position = Vector2(174, 699)
+script = ExtResource("3_1ciyb")
+
+[node name="AnimatedSprite2D_chapada" type="AnimatedSprite2D" parent="main_player_chapada"]
+position = Vector2(-28, -17.0001)
+scale = Vector2(0.297852, 0.306641)
+sprite_frames = SubResource("SpriteFrames_8ft5c")
+animation = &"cycling"
+frame_progress = 0.0957536
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="main_player_chapada"]
+position = Vector2(-58, 5)
+shape = SubResource("RectangleShape2D_8ft5c")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(1279, 725)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-20.875, -282)
+shape = SubResource("RectangleShape2D_imloa")
+
+[node name="LineEdit" type="LineEdit" parent="."]
+offset_left = 26.0
+offset_top = 21.0
+offset_right = 177.0
+offset_bottom = 65.0
+placeholder_text = "Enter State Name"
+
+[node name="Lencois" type="Sprite2D" parent="."]
+position = Vector2(470, 584)
+scale = Vector2(0.165039, 0.211914)
+texture = ExtResource("7_0s018")
+
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="Bonfim" type="Sprite2D" parent="Area2D2"]
+position = Vector2(315.5, 174.25)
+scale = Vector2(0.15332, 0.147949)
+texture = ExtResource("6_1ciyb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(317.148, 175.423)
+scale = Vector2(0.15332, 0.147949)
+shape = SubResource("RectangleShape2D_1ciyb")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="text_submitted" from="LineEdit" to="." method="_on_line_edit_text_submitted"]
+[connection signal="input_event" from="Area2D2" to="." method="_on_bonfim_input_event"]

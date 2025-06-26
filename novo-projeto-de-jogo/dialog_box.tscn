@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bk0djtc7o4ll0"]
 
 [ext_resource type="Texture2D" uid="uid://dtfduhw38fs75" path="res://dialog.png" id="1_1ki1k"]
-[ext_resource type="Script" uid="uid://bnyqry14fsoux" path="res://dialog_box.gd" id="2_cjsg4"]
+[ext_resource type="Script" uid="uid://bnyqry14fsoux" path="res://gd_scripts/dialog_box.gd" id="2_cjsg4"]
 
 [node name="DialogBox" type="NinePatchRect"]
 offset_left = 1411.0
