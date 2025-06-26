@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5852u52fwwdl"]
+
+[ext_resource type="Texture2D" uid="uid://w55agon0jq1i" path="res://images/menu.png" id="1_lti8b"]
+[ext_resource type="Script" uid="uid://dxn8agpwhh0lf" path="res://gd_scripts/menu_script/menu.gd" id="1_ouk20"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ouk20")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1393.0
+offset_bottom = 894.0
+color = Color(0.176471, 0.384314, 0.564706, 1)
+
+[node name="Menu" type="Sprite2D" parent="."]
+position = Vector2(748, 448)
+scale = Vector2(0.696289, 0.582682)
+texture = ExtResource("1_lti8b")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 560.0
+offset_top = 606.0
+offset_right = 933.0
+offset_bottom = 683.0
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 557.0
+offset_top = 694.0
+offset_right = 930.0
+offset_bottom = 767.0
+
+[node name="Button3" type="Button" parent="."]
+layout_mode = 0
+offset_left = 559.0
+offset_top = 779.0
+offset_right = 935.0
+offset_bottom = 859.0
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down_iniciar"]

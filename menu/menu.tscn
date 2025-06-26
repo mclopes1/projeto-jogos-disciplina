@@ -37,10 +37,10 @@ offset_bottom = 0.0799561
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 469.0
-offset_top = 430.0
-offset_right = 721.0
-offset_bottom = 483.0
+offset_left = 472.0
+offset_top = 431.0
+offset_right = 724.0
+offset_bottom = 484.0
 theme_type_variation = &"FlatButton"
 
 [node name="Button2" type="Button" parent="."]

@@ -1,5 +1,7 @@
 extends Node
 
+var is_dragging = false
+
 var player_position: Vector2 = Vector2(669,500)  # ou Vector3 se for 3D
 
 var acertos_estados = {"bahia": false, "sergipe": false, "alagoas": false, "pernambuco": false, 

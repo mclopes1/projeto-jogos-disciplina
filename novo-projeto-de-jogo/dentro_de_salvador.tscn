@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cmgxx1w2klvfw"]
+[gd_scene load_steps=26 format=3 uid="uid://cmgxx1w2klvfw"]
 
 [ext_resource type="Script" uid="uid://djygxlw4h7rf2" path="res://gd_scripts/dentro_da_chapada.gd" id="1_nq37m"]
 [ext_resource type="Texture2D" uid="uid://bpalwpohvc5v0" path="res://images/bahia/elevador_lacerda.png" id="2_nq37m"]
@@ -16,7 +16,6 @@
 [ext_resource type="Script" uid="uid://ciuht325ay0ff" path="res://gd_scripts/drag_drop/naobahia_2.gd" id="14_i5lo1"]
 [ext_resource type="Texture2D" uid="uid://bwgetpyre2jj1" path="res://images/bahia_drag_drop/bahia2.jpg" id="15_x0pw4"]
 [ext_resource type="Texture2D" uid="uid://cj6pqplqgus4g" path="res://images/bahia_drag_drop/nao_bahia2.png" id="16_x0pw4"]
-[ext_resource type="FontFile" uid="uid://cn1dlsipjt5dq" path="res://fontes/Ricebox Allcaps.ttf" id="17_hc0xp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8ft5c"]
 animations = [{
@@ -83,8 +82,15 @@ shape = SubResource("RectangleShape2D_8ft5c")
 position = Vector2(1279, 725)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-20.875, -282)
+top_level = true
+position = Vector2(-34, -280)
 shape = SubResource("RectangleShape2D_imloa")
+
+[node name="ColorRect" type="ColorRect" parent="Area2D"]
+offset_left = -130.0
+offset_top = -731.0
+offset_right = 123.0
+offset_bottom = 160.0
 
 [node name="LineEdit" type="LineEdit" parent="."]
 offset_left = 111.0
@@ -146,28 +152,29 @@ texture = ExtResource("12_bytcu")
 position = Vector2(-3, 6)
 shape = SubResource("RectangleShape2D_x0pw4")
 
-[node name="naobahia2" type="Area2D" parent="." groups=["nao_bahia"]]
+[node name="bahia3" type="Area2D" parent="." groups=["bahia"]]
 position = Vector2(854, 569)
 script = ExtResource("14_i5lo1")
 
-[node name="Sprite2D" type="Sprite2D" parent="naobahia2"]
+[node name="Sprite2D" type="Sprite2D" parent="bahia3"]
 position = Vector2(-46, -6.99998)
 scale = Vector2(0.147917, 0.168125)
 texture = ExtResource("15_x0pw4")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="naobahia2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bahia3"]
 position = Vector2(-45.25, -5.5)
 shape = SubResource("RectangleShape2D_hc0xp")
 
-[node name="bahia3" type="Area2D" parent="."]
+[node name="naobahia2" type="Area2D" parent="." groups=["nao_bahia"]]
 position = Vector2(527, 598)
+script = ExtResource("14_i5lo1")
 
-[node name="Sprite2D" type="Sprite2D" parent="bahia3"]
+[node name="Sprite2D" type="Sprite2D" parent="naobahia2" groups=["nao_bahia"]]
 position = Vector2(-16.75, -13)
 scale = Vector2(0.185059, 0.15625)
 texture = ExtResource("16_x0pw4")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="bahia3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="naobahia2"]
 position = Vector2(-14.5, -13)
 shape = SubResource("RectangleShape2D_t06g5")
 
@@ -183,12 +190,11 @@ offset_bottom = 81.0
 theme_override_font_sizes/font_size = 45
 
 [node name="Label" type="Label" parent="."]
-offset_left = 633.0
-offset_top = 9.0
-offset_right = 894.0
-offset_bottom = 89.0
-theme_override_fonts/font = ExtResource("17_hc0xp")
-theme_override_font_sizes/font_size = 81
+offset_left = 545.0
+offset_top = -12.0
+offset_right = 884.0
+offset_bottom = 99.0
+theme_override_font_sizes/font_size = 70
 text = "Acertos: "
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
@@ -199,5 +205,6 @@ text = "Acertos: "
 [connection signal="input_event" from="lencois" to="lencois" method="_on_input_event"]
 [connection signal="input_event" from="bahia2" to="bahia2" method="_on_input_event"]
 [connection signal="input_event" from="naobahia" to="naobahia" method="_on_input_event"]
+[connection signal="input_event" from="bahia3" to="bahia3" method="_on_input_event"]
 [connection signal="input_event" from="naobahia2" to="naobahia2" method="_on_input_event"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
